@@ -99,7 +99,7 @@ module DeviseTokenAuth
         mapping = mapping.name
 
         class_eval <<-METHODS, __FILE__, __LINE__ + 1
-          def authenticate_#{mapping}!
+          def authenticate_#{mapping}!(options={})
             unless current_#{mapping}
               return render json: {
                 errors: ["Authorized users only."]
